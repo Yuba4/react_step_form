@@ -46,9 +46,19 @@ export class FormPersonalDetails extends Component {
               defaultValue={values.email}
               />
               <br/>
+
+              <RaisedButton
+              label="次へ"
+              primary={true}
+              styles={styles.button}
+              onClick={this.continue}
+
+               />
+
+
               <RaisedButton
               label="前へ"
-              primary={true}
+              primary={false}
               styles={styles.button}
               onClick={this.back}
 
