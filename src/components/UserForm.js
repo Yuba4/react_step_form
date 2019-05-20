@@ -8,8 +8,9 @@ import Success from './Success';
 export class UserForm extends Component {
     state = {
         step: 1,
-        firstName: '',  //名前//
+        
         lastName: '',   //名字
+        firstName: '',  //名前//
         email: '',
         occupation: '',
         city: '',
@@ -33,6 +34,9 @@ export class UserForm extends Component {
     }
    
      //Handle fields Change  入力フォームの変更
+      handleChange = input => e => {
+        this.setState({ [input]: e.target.value});
+      }; 
 
 
     render() {
@@ -49,9 +53,17 @@ export class UserForm extends Component {
               handleChange={this.handleChange}
               values={values}
             />
-              )
+              );
             case 2:
-             return <h1>FromPersonalDetails</h1>
+             return (
+             <FormPersonalDetails
+             nextStep={this.nextStep}
+             prevStep={this.prevStep}
+             handleChange={this.handleChange}
+              values={values}
+             />
+             );
+
             case 3 :
             return <h1>COnfirm</h1>
             case 4 :
@@ -59,5 +71,8 @@ export class UserForm extends Component {
         }
   }
 }
+
+
+
 
 export default UserForm;
